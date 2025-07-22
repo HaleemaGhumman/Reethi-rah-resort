@@ -300,40 +300,125 @@
             margin-bottom: 20px;
         }
         
-        /* Dining Section */
-        .dining {
-            background-color: white;
-        }
-        
-        .dining-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .dining-text {
-            flex: 1;
-        }
-        
+       <style>
+    /* Dining Section Styles */
+    .dining {
+        padding: 80px 0;
+        background-color: #f9f9f9;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .dining-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+    
+    .dining-text {
+        flex: 1;
+        padding: 30px;
+    }
+    
+    .dining-text h2 {
+        font-size: 2.5rem;
+        color: brown;
+        margin-bottom: 20px;
+        font-family: 'Playfair Display', serif;
+        font-weight: 500;
+    }
+    
+    .dining-text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 30px;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-grey {
+        background-color: #555;
+        color: white;
+        border: 2px solid #555;
+    }
+    
+    .btn-grey:hover {
+        background-color: transparent;
+        color: #555;
+    }
+    
+    .dining-image {
+        flex: 1;
+        height: 500px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
         .dining-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
+            font-size: 2rem;
         }
         
         .dining-text p {
-            margin-bottom: 30px;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .dining-image {
-            flex: 1;
-            height: 500px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 400px;
         }
+    }
+    
+    @media (max-width: 768px) {
+        .dining-content {
+            flex-direction: column-reverse;
+            gap: 30px;
+        }
+        
+        .dining-text {
+            padding: 0;
+            text-align: center;
+        }
+        
+        .dining-image {
+            width: 100%;
+            height: 350px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .dining {
+            padding: 60px 0;
+        }
+        
+        .dining-text h2 {
+            font-size: 1.8rem;
+        }
+        
+        .dining-image {
+            height: 250px;
+        }
+        
+        .btn {
+            padding: 10px 25px;
+            font-size: 0.9rem;
+        }
+    }
+
         
         /* Facilities Section */
         .facilities {
@@ -531,7 +616,7 @@
 
                 </div>
             </div>
-            <a href="book now.html" class="btn btn-grey book-now-btn">BOOK NOW</a>
+            <a href="book-now.html" class="btn btn-grey book-now-btn">BOOK NOW</a>
          </div>
       </nav>
    </header>
@@ -580,7 +665,10 @@
                     </div>
                 </div>
                 <div class="villa-card">
-                    <div class="villa-img" style="background-image: url('https://images.unsplash.com/photo-1582719471384-894e8b5d2c9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                   <div 
+    class="villa-img" 
+    style="background-image: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"
+  ></div>
                     <div class="villa-content">
                         <h3>Grand Water Villa</h3>
                         <p>Ultra-luxurious two-bedroom overwater residence with infinity pool and butler service.</p>
@@ -591,74 +679,89 @@
         </div>
     </section>
     
-    <!-- Dining Section -->
-    <section class="dining">
-        <div class="container">
-            <div class="dining-content">
-                <div class="dining-text">
-                    <h2>World-Class Dining at Reethi Rah</h2>
-                    <p>Discover eight amazing restaurants serving inventive international cuisine influenced by our own organic gardens and the produce of the nearby waters. From Japanese-Peruvian fusion to authentic Italian, our culinary offerings will delight even the most discerning palates.</p>
-                    <a href="#" class="btn btn-grey">Explore Restaurants</a>
+   <!-- Dining Section -->
+<section class="dining">
+    <div class="container">
+        <div class="dining-content">
+            <div class="dining-text">
+                <h2>World-Class Dining at Reethi Rah</h2>
+                <p>Discover eight amazing restaurants serving inventive international cuisine influenced by our own organic gardens and the produce of the nearby waters. From Japanese-Peruvian fusion to authentic Italian, our culinary offerings will delight even the most discerning palates.</p>
+                <a href="#" class="btn btn-grey">Explore Restaurants</a>
+            </div>
+            <div class="dining-image" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+        </div>
+    </div>
+</section>
+    
+   <!-- Facilities Section -->
+<section class="facilities">
+    <div class="container">
+        <div class="section-header">
+            <h2>Hotel Facilities</h2>
+            <p>Everything you need for a perfect stay in paradise</p>
+        </div>
+        <div class="facilities-grid">
+            <div class="facility-card">
+                <div class="facility-icon">
+                    <i class="fas fa-dumbbell"></i>
                 </div>
-                <div class="dining-image" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <h3>Gym</h3>
+                <p>Continue with your healthy lifestyle during your holiday with our state-of-the-art fitness center.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">
+                    <i class="fas fa-swimming-pool"></i>
+                </div>
+                <h3>Swimming Pool</h3>
+                <p>Enjoy your day lounging by the pool in the Maldivian sun with a refreshing drink from our bar.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3>Laundry Service</h3>
+                <p>Laundry services are offered to keep your vacation wardrobe fresh and clean.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h3>Free Wi-Fi</h3>
+                <p>Complimentary Wi-Fi is available throughout the resort. High speed internet is offered at an additional charge.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">
+                    <i class="fas fa-table-tennis"></i>
+                </div>
+                <h3>Sports</h3>
+                <p>Table tennis, billiards, football table, air hockey, darts and more for your entertainment.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon">
+                    <i class="fas fa-shuttle-van"></i>
+                </div>
+                <h3>Airport Transfers</h3>
+                <p>Seamless airport transfers arranged by the resort for your convenience.</p>
+            </div>
+            <!-- New Facility 1 -->
+            <div class="facility-card">
+                <div class="facility-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>Luxury Spa</h3>
+                <p>Indulge in rejuvenating treatments at our award-winning spa with overwater treatment rooms.</p>
+            </div>
+            <!-- New Facility 2 -->
+            <div class="facility-card">
+                <div class="facility-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3>Water Sports Center</h3>
+                <p>Comprehensive water sports including snorkeling, kayaking, paddle boarding, and jet skiing.</p>
             </div>
         </div>
-    </section>
-    
-    <!-- Facilities Section -->
-    <section class="facilities">
-        <div class="container">
-            <div class="section-header">
-                <h2>Hotel Facilities</h2>
-                <p>Everything you need for a perfect stay in paradise</p>
-            </div>
-            <div class="facilities-grid">
-                <div class="facility-card">
-                    <div class="facility-icon">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                    <h3>Gym</h3>
-                    <p>Continue with your healthy lifestyle during your holiday with our state-of-the-art fitness center.</p>
-                </div>
-                <div class="facility-card">
-                    <div class="facility-icon">
-                        <i class="fas fa-swimming-pool"></i>
-                    </div>
-                    <h3>Swimming Pool</h3>
-                    <p>Enjoy your day lounging by the pool in the Maldivian sun with a refreshing drink from our bar.</p>
-                </div>
-                <div class="facility-card">
-                    <div class="facility-icon">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3>Laundry Service</h3>
-                    <p>Laundry services are offered to keep your vacation wardrobe fresh and clean.</p>
-                </div>
-                <div class="facility-card">
-                    <div class="facility-icon">
-                        <i class="fas fa-wifi"></i>
-                    </div>
-                    <h3>Free Wi-Fi</h3>
-                    <p>Complimentary Wi-Fi is available throughout the resort. High speed internet is offered at an additional charge.</p>
-                </div>
-                <div class="facility-card">
-                    <div class="facility-icon">
-                        <i class="fas fa-table-tennis"></i>
-                    </div>
-                    <h3>Sports</h3>
-                    <p>Table tennis, billiards, football table, air hockey, darts and more for your entertainment.</p>
-                </div>
-                <div class="facility-card">
-                    <div class="facility-icon">
-                        <i class="fas fa-shuttle-van"></i>
-                    </div>
-                    <h3>Airport Transfers</h3>
-                    <p>Seamless airport transfers arranged by the resort for your convenience.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+    </div>
+</section>
     <!-- Key Facts Section -->
     <section class="key-facts">
         <div class="container">
