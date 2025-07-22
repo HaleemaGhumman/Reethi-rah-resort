@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dining at Reethi Rah</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation - Updated */
+        nav {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: brown;
+            margin-right: 180px;
+            white-space: nowrap;
+             text-decoration: none; 
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 25px;
+            margin-right: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: brown;
+        }
+        
+        .book-now-container {
+            margin-left: auto;
+        }
+        
+        .book-now-btn {
+            background-color: grey;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .book-now-btn:hover {
+            background-color: #666;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        /* Dining Intro */
+        .dining-intro {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .dining-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: brown;
+        }
+        
+        .dining-intro p {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        /* Restaurants Section */
+        .restaurants {
+            padding: 50px 0;
+        }
+        
+        .restaurant-card {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .restaurant-image {
+            flex: 1;
+            min-height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .restaurant-content {
+            flex: 1;
+            padding: 40px;
+        }
+        
+        .restaurant-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: brown;
+        }
+        
+        .restaurant-content p {
+            margin-bottom: 30px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* Private Dining */
+        .private-dining {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .private-dining h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .private-dining p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Special Events */
+        .special-events {
+            padding: 80px 0;
+        }
+        
+        .event-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .event-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .event-content {
+            padding: 30px;
+        }
+        
+        .event-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: brown;
+        }
+        
+        .event-content p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .main-nav {
+                gap: 15px;
+                margin-right: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                align-items: center;
+                margin-right: 0;
+            }
+            
+            .book-now-container {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .restaurant-card {
+                flex-direction: column;
+            }
+            
+            .restaurant-image {
+                min-height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Reethi Rah</a>
+            <div class="nav-links">
+                <div class="main-nav">
+                    <a href="index.html">Home</a>
+                    <a href="offers.html">Offers</a>
+                    <a href="accomodation.html">Accommodation</a>
+                    <a href="dinning.html">Dining</a>
+                    <a href="experience.html">Experiences</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="about1.html">About</a>
+                    <a href="book-now.html">book</a>
+
+                </div>
+                <div class="book-now-container">
+                    <a href="book now.html" class="book-now-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Dining at Reethi Rah</h1>
+        </div>
+    </section>
+    
+    <!-- Dining Intro -->
+    <section class="dining-intro">
+        <div class="container">
+            <h2>Restaurants and Bars</h2>
+            <p>Experience the finest gastronomic journeys within our eight restaurants and five bars. Our exciting curation of dining, bar and lounge options, set in breathtaking ocean venues, will tantalize your senses.</p>
+        </div>
+    </section>
+    
+    <!-- Restaurants -->
+    <section class="restaurants">
+        <div class="container">
+            <!-- Tapasake -->
+            <div class="restaurant-card">
+                <div class="restaurant-image" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="restaurant-content">
+                    <h3>Tapasake</h3>
+                    <p>Enter a world of earthly delights overlooking iconic Indian Ocean sunsets and indulge in Tapasake's simple yet artful concept of Japanese-inspired cuisine with a Spanish twist.</p>
+                </div>
+            </div>
+            
+            <!-- Botanica -->
+            <div class="restaurant-card">
+                <div class="restaurant-content">
+                    <h3>Botanica</h3>
+                    <p>An atmospheric, outdoor restaurant that heroes outdoor cooking with garden-grown fresh ingredients. Dine beneath the trees and the stars in our farm-to-fork restaurant and be enveloped by the romance of our beautiful hidden gardens. Placing an emphasis on natural ingredients, much of our menu is sourced from our Chef's Garden and the surrounding ocean.</p>
+                </div>
+                <div class="restaurant-image" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+            </div>
+            
+            <!-- Reethi -->
+            <div class="restaurant-card">
+                <div class="restaurant-image" style="background-image: url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="restaurant-content">
+                    <h3>Reethi</h3>
+                    <p>Reethi serves bountiful breakfasts in the morning and in the evening, fresh flavors of the Mediterranean coastline in Earth, refined dishes of the French Riviera in Aqua, and pan-Asian cuisine in Fire.</p>
+                </div>
+            </div>
+            
+            <!-- Rabarbaro -->
+            <div class="restaurant-card">
+                <div class="restaurant-content">
+                    <h3>Rabarbaro</h3>
+                    <p>Offering authentic and rustic Italian fare with endless ocean views, Rabarbaro is the perfect pittor for a long, lazy lunch and relaxed drinks during the day, and refined Italian dining in the evenings.</p>
+                </div>
+                <div class="restaurant-image" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+            </div>
+            
+            <!-- Fanditha -->
+            <div class="restaurant-card">
+                <div class="restaurant-image" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="restaurant-content">
+                    <h3>Fanditha</h3>
+                    <p>The energy of the Middle East comes to life at our exotic, shoreline majlis. Enjoy signature sundowners while watching the waves.</p>
+                </div>
+            </div>
+            
+            <!-- Beach Club -->
+            <div class="restaurant-card">
+                <div class="restaurant-content">
+                    <h3>Beach Club</h3>
+                    <p>Soak up the energy of the island's southernmost beach while you enjoy healthy snacks or our signature burger from your private cabana.</p>
+                </div>
+                <div class="restaurant-image" style="background-image: url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Private Dining -->
+    <section class="private-dining">
+        <div class="container">
+            <h2>Private Dining</h2>
+            <p>Choose your gourmet menu and your perfect location in a tailored dining experience curated by our dedicated team just for you and your companions.</p>
+        </div>
+    </section>
+    
+    <!-- Special Events -->
+    <section class="special-events">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 50px; color:brown;">Special Dining Events</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                <!-- Mercato Italiano -->
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="event-content">
+                        <h3>Mercato Italiano</h3>
+                        <p>Delight in a menu reminiscent of the enchanting streets of Italy, complete with homemade pasta, creamy risotto, wood-fired pizza, and succulent porchetta roasted on the spit. Experience an evening of la dolce vita by our pools with chilled Prosecco, Aperol Spritz and live music.</p>
+                    </div>
+                </div>
+                
+                <!-- Taste of Soug -->
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="event-content">
+                        <h3>Taste of Soug</h3>
+                        <p>Indulge in an enchanting Arabica experience on the shores of Reethi Rah. Savor a variety of authentic Middle Eastern flavors, from live saj and shawarma stations to whole roasted lamb, and unwind to the rhythmic sounds of Maldivian music.</p>
+                    </div>
+                </div>
+                
+                <!-- Bubbles and Starlight -->
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="event-content">
+                        <h3>Bubbles and Starlight</h3>
+                        <p>Walk barefoot along the beach as you immerse yourself in the vibrant world of live music and Southeast Asian street food. Treat yourself to an array of Pan-Asian delicacies and let our sommeliers pair your meal with chilled Champagne right at your table.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section -->
+<footer style="background-color: brown; color: white; padding: 50px 0 20px; font-family: Arial, sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 30px;">
+            
+</footer>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   
+</body>
+</html>
