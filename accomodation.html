@@ -85,43 +85,44 @@
         }
         
         /* Navigation - Updated Styles */
-        nav {
+         nav {
             background-color: white;
             padding: 15px 0;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
         }
         
-        .nav-container {
+        
+        
+       .nav-container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        .logo {
+           .logo {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
-            margin-right: 180px;
-            white-space: nowrap;
+            flex-shrink: 0;
+        }
+       .nav-center {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
         }
         
         .nav-links {
             display: flex;
-            align-items: center;
-            flex-grow: 1;
-        }
-        
-        .main-nav {
-            display: flex;
             gap: 30px;
-            margin-right: 30px;
+            align-items: center;
         }
         
         .nav-links a {
@@ -133,11 +134,20 @@
             letter-spacing: 1px;
             transition: color 0.3s;
             position: relative;
-            white-space: nowrap;
-            padding: 5px 0;
         }
         
-        .nav-links a:hover {
+        .main-nav {
+            display: flex;
+            gap: 35px;
+            
+             
+           
+           
+        
+        }
+        
+        
+         .nav-links a:hover {
             color: var(--primary);
         }
         
@@ -156,9 +166,9 @@
             width: 100%;
         }
         
-        .book-now-container {
-            margin-left: auto;
-        }
+         .book-now-btn {
+                margin: 10px auto 0;
+            }
         
         /* Hero Section */
         .villas-hero {
@@ -185,7 +195,33 @@
             text-transform: uppercase;
             letter-spacing: 3px;
         }
+         /* Responsive Styles */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 15px;
+            }
+        }
         
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-center {
+                width: 100%;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .book-now-btn {
+                margin: 10px auto 0;
+            }
+        }
+
         /* Villas Intro */
         .villas-intro {
             text-align: center;

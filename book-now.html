@@ -9,13 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color:brown;
-            --secondary-color:grey;
+            --primary-color: brown;
+            --secondary-color: grey;
             --light-color: #f8f8f8;
-            --dark-color: #333;
-            --overlay: rgba(0, 0, 0, 0.6);
-            --text-color: #444;
+            --dark-color: rgba(0, 0, 0, 0.644);
+            --overlay: brown;
+            --text-color: rgba(0, 0, 0, 0.534);
             --border-color: #e0e0e0;
+            
         }
         
         * {
@@ -77,24 +78,17 @@
             margin: 0 auto;
         }
         
-        .logo {
+       .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: brown; /* Changed to brown */
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 1px;
-        }
-        
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
+            flex-shrink: 0;
         }
         
         .nav-links {
             display: flex;
+             gap: 5px;
             list-style: none;
         }
         
@@ -148,7 +142,7 @@
         }
         
         .book-now-btn:hover {
-            background-color: #c19b2e;
+            background-color: brown;
             transform: translateY(-2px);
         }
         
@@ -205,7 +199,7 @@
             padding: 40px;
             border-radius: 8px;
             height: fit-content;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px black;
             border: 1px solid var(--border-color);
         }
         
@@ -560,6 +554,7 @@
         <a href="#" class="logo">Reethi Rah</a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
+           <li><a href="offers.html">Offers</a></li> 
             <li><a href="accomodation.html">Accommodation</a></li>
             <li><a href="dinning.html">Dining</a></li>
             <li><a href="experience.html">Experiences</a></li>
