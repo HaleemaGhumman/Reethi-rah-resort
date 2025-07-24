@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reethi Rah Resort - Spa & Wellness</title>
+    <style>
+        :root {
+            --primary: #0a9396;
+            --secondary: #005f73;
+            --accent: rgba(0, 0, 0, 0.493);
+            --light:black;
+            --dark: black;
+            --sand: #005f73 ;
+        }
+        
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            background-image: url('https://www.oneandonlyresorts.com/sites/default/files/styles/hero_image_1920x1080/public/2021-06/One_Only_Reethi_Rah_Exterior_1920x1080.jpg?itok=3Z3k1Q2S');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(248, 249, 250, 0.9);
+        }
+        
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-btn {
+            background-color: var(--accent);
+            color: var(--dark) !important;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background-color: var(--primary);
+            color: white !important;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+        
+       /* Spa Header - Enhanced Version */
+.spa-header {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    padding: 180px 20px;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh; /* Increased height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spa-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 147, 150, 0.15); /* Primary color with low opacity */
+    z-index: 1;
+}
+
+.spa-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+
+.spa-header p {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 2;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            background-color: rgba(255,255,255,0.95);
+            border-radius: 8px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            margin-top: -40px;
+            padding-top: 40px;
+        }
+        
+        /* Spa Showcase */
+        .spa-showcase {
+            padding: 60px 0;
+        }
+        
+        .spa-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .spa-intro h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .spa-category {
+            margin-bottom: 80px;
+        }
+        
+        .spa-category h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .spa-category h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 15px auto 0;
+        }
+        
+        .spa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .spa-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .spa-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+        
+        .spa-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .spa-card:hover .spa-image {
+            transform: scale(1.05);
+        }
+        
+        .spa-details {
+            padding: 25px;
+        }
+        
+        .spa-details h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .spa-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .spa-feature {
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .spa-feature i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+        
+        .spa-price {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .spa-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .spa-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Facilities Section */
+        .facilities {
+            background-color: #f5f5f5;
+            padding: 80px 0;
+            margin: 60px 0;
+            border-radius: 8px;
+        }
+        
+        .facilities h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .facility-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .facility-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .facility-item h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .facility-item p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        /* Wellness Programs */
+        .programs {
+            padding: 60px 0;
+        }
+        
+        .programs h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 40px;
+        }
+        
+        .program-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .program-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .program-card ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .program-card li {
+            margin-bottom: 10px;
+        }
+        
+      
+        
+        .newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            background-color: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: #ffb52b;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(rgba(0,18,25,0.95), rgba(0,18,25,0.95)), 
+                        url('https://www.oneandonlyresorts.com/sites/default/files/styles/hero_image_1920x1080/public/2021-06/One_Only_Reethi_Rah_Sunset_1920x1080.jpg?itok=6XJQY9Xj');
+            background-size: cover;
+            background-position: center;
+            color: rgba(0, 0, 0, 0.5);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--sand);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: rgba(0, 0, 0, 0.452);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .spa-header {
+                padding: 100px 20px;
+                min-height: 50vh;
+            }
+            
+            .spa-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .spa-header p {
+                font-size: 1.1rem;
+            }
+            
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 30px;
+                padding: 15px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">Reethi Rah</a>
+            
+            <button class="mobile-menu-btn">☰</button>
+            
+            <ul class="nav-links">
+                 <li><a href="index.html">Home</a></li>
+            <li><a href="villapage.html">Villa</a></li>
+            <li><a href="dinningpage.html">Dining</a></li>
+            <li><a href="experiencepage.html">Experiences</a></li>
+             <li><a href="spapage.html">spa</a></li>
+            
+  <li><a href="booknow.html" class="nav-btn">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header class="spa-header">
+        <h1>OVERWATER SPA & WELLNESS SANCTUARY</h1>
+        <p>Rejuvenate your mind, body and soul with our holistic treatments inspired by the Maldivian sea</p>
+    </header>
+    
+    <!-- Spa Content -->
+    <main class="container">
+        <section class="spa-showcase">
+            <div class="spa-intro">
+                <h2>A Sanctuary Above the Waves</h2>
+                <p>Perched over the lagoon with sweeping ocean views, our overwater spa combines ancient healing traditions with modern wellness techniques. Each treatment is crafted to harmonize with the natural rhythms of the islands, using locally-inspired ingredients and therapies.</p>
+            </div>
+            
+            <div class="spa-category">
+                <h2>Signature Treatments</h2>
+                <div class="spa-grid">
+                    <div class="spa-card">
+                        <div class="spa-image" style="background-image: url('images/maldivine.webp');"></div>
+                        <div class="spa-details">
+                            <h3>Maldivian Pearl Ritual</h3>
+                            <div class="spa-features">
+                                <span class="spa-feature"><i class="fas fa-clock"></i> 90 Minutes</span>
+                                <span class="spa-feature"><i class="fas fa-user"></i> Body Treatment</span>
+                            </div>
+                            <p>A luxurious full-body exfoliation with pearl powder followed by a hydrating wrap using coconut and marine algae.</p>
+                            <div class="spa-price">$220</div>
+                            <a href="#" class="spa-btn">Book Treatment</a>
+                        </div>
+                    </div>
+                    
+                    <div class="spa-card">
+                        <div class="spa-image" style="background-image: url('images/ocean.webp');"></div>
+                        <div class="spa-details">
+                            <h3>Ocean Harmony Massage</h3>
+                            <div class="spa-features">
+                                <span class="spa-feature"><i class="fas fa-clock"></i> 60/90 Minutes</span>
+                                <span class="spa-feature"><i class="fas fa-user"></i> Massage</span>
+                            </div>
+                            <p>A rhythmic massage using warm seashells and aromatic oils to mimic the ebb and flow of the tides.</p>
+                            <div class="spa-price">From $180</div>
+                            <a href="#" class="spa-btn">Book Treatment</a>
+                        </div>
+                    </div>
+                    
+                    <div class="spa-card">
+                        <div class="spa-image" style="background-image: url('images/facial.webp');"></div>
+                        <div class="spa-details">
+                            <h3>Coral Renewal Facial</h3>
+                            <div class="spa-features">
+                                <span class="spa-feature"><i class="fas fa-clock"></i> 75 Minutes</span>
+                                <span class="spa-feature"><i class="fas fa-user"></i> Facial</span>
+                            </div>
+                            <p>An anti-aging treatment using marine collagen and antioxidant-rich local ingredients for radiant skin.</p>
+                            <div class="spa-price">$195</div>
+                            <a href="#" class="spa-btn">Book Treatment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="spa-category">
+                <h2>Couples' Experiences</h2>
+                <div class="spa-grid">
+                    <div class="spa-card">
+                        <div class="spa-image" style="background-image: url('images/sunset.webp');"></div>
+                        <div class="spa-details">
+                            <h3>Sunset Couples' Retreat</h3>
+                            <div class="spa-features">
+                                <span class="spa-feature"><i class="fas fa-clock"></i> 2 Hours</span>
+                                <span class="spa-feature"><i class="fas fa-user"></i> For Two</span>
+                            </div>
+                            <p>Side-by-side massages in our overwater pavilion followed by champagne and canapés as the sun sets.</p>
+                            <div class="spa-price">$450</div>
+                            <a href="#" class="spa-btn">Book Experience</a>
+                        </div>
+                    </div>
+                    
+                    <div class="spa-card">
+                        <div class="spa-image" style="background-image: url('images/OIP (1).webp');"></div>
+                        <div class="spa-details">
+                            <h3>Private Beach Spa Day</h3>
+                            <div class="spa-features">
+                                <span class="spa-feature"><i class="fas fa-clock"></i> 4 Hours</span>
+                                <span class="spa-feature"><i class="fas fa-user"></i> For Two</span>
+                            </div>
+                            <p>Exclusive use of a beach cabana with multiple treatments, private jacuzzi, and gourmet lunch.</p>
+                            <div class="spa-price">$850</div>
+                            <a href="#" class="spa-btn">Book Experience</a>
+                        </div>
+                    </div>
+                    
+                    <div class="spa-card">
+                        <div class="spa-image" style="background-image: url('images/moonlight.webp');"></div>
+                        <div class="spa-details">
+                            <h3>Moonlight Aromatherapy</h3>
+                            <div class="spa-features">
+                                <span class="spa-feature"><i class="fas fa-clock"></i> 90 Minutes</span>
+                                <span class="spa-feature"><i class="fas fa-user"></i> For Two</span>
+                            </div>
+                            <p>Evening massage under the stars using custom-blended essential oils based on your preferences.</p>
+                            <div class="spa-price">$400</div>
+                            <a href="#" class="spa-btn">Book Experience</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facilities Section -->
+            <section class="facilities">
+                <h2>Spa Facilities</h2>
+                <div class="facilities-grid">
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fas fa-water"></i></div>
+                        <h3>Overwater Treatment Rooms</h3>
+                        <p>Private pavilions with glass floor panels to view marine life during treatments</p>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fas fa-hot-tub"></i></div>
+                        <h3>Hydrotherapy Pool</h3>
+                        <p>Heated vitality pool with massage jets and ocean views</p>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fas fa-spa"></i></div>
+                        <h3>Relaxation Lounge</h3>
+                        <p>Serene space with day beds and refreshments between treatments</p>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fas fa-leaf"></i></div>
+                        <h3>Herbal Steam Room</h3>
+                        <p>Infused with local botanicals for respiratory and skin benefits</p>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fas fa-snowflake"></i></div>
+                        <h3>Ice Fountain</h3>
+                        <p>Invigorating cold therapy to stimulate circulation</p>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <div class="facility-icon"><i class="fas fa-bath"></i></div>
+                        <h3>Private Spa Villas</h3>
+                        <p>Self-contained retreats for complete privacy and relaxation</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Wellness Programs -->
+            <section class="programs">
+                <h2>Wellness Programs</h2>
+                <div class="program-grid">
+                    <div class="program-card">
+                        <h3>Detox & Renewal</h3>
+                        <p>A 3-day program designed to cleanse and revitalize your system:</p>
+                        <ul>
+                            <li>Daily lymphatic drainage massage</li>
+                            <li>Nutritional consultation and detox meals</li>
+                            <li>Infrared sauna sessions</li>
+                            <li>Guided meditation and breathing exercises</li>
+                            <li>Herbal supplement program</li>
+                        </ul>
+                        <div class="spa-price">From $1,200</div>
+                        <a href="#" class="spa-btn">Inquire About Program</a>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h3>Stress Relief Retreat</h3>
+                        <p>A personalized 5-day journey to restore balance and reduce stress:</p>
+                        <ul>
+                            <li>Daily yoga and meditation sessions</li>
+                            <li>Aromatherapy and sound healing treatments</li>
+                            <li>Sleep optimization consultation</li>
+                            <li>Forest bathing and mindful walking</li>
+                            <li>Digital detox guidance</li>
+                        </ul>
+                        <div class="spa-price">From $1,800</div>
+                        <a href="#" class="spa-btn">Inquire About Program</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+        <!-- Additional Spa Images Section -->
+        <section class="spa-category">
+            <h2>Our Spa Sanctuary</h2>
+            <div class="spa-grid">
+                <div class="spa-card">
+                    <div class="spa-image" style="background-image: url('images/tranqul.webp');"></div>
+                    <div class="spa-details">
+                        <h3>Tranquil Entrance</h3>
+                        <p>The serene entrance to our overwater spa, designed to immediately transport you to a state of relaxation.</p>
+                    </div>
+                </div>
+                
+                <div class="spa-card">
+                    <div class="spa-image" style="background-image: url('images/pool.webp');"></div>
+                    <div class="spa-details">
+                        <h3>Infinity Relaxation Pool</h3>
+                        <p>Our heated infinity pool overlooking the lagoon, perfect for pre- or post-treatment relaxation.</p>
+                    </div>
+                </div>
+                
+                <div class="spa-card">
+                    <div class="spa-image" style="background-image: url('images/sunrise yoga.webp');"></div>
+                    <div class="spa-details">
+                        <h3>Sunrise Yoga Pavilion</h3>
+                        <p>Our overwater yoga platform where guests can practice with views of the rising sun.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Reethi Rah</h3>
+                    <p>North Malé Atoll, Maldives</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#">Villas & Residences</a></li>
+                        <li><a href="#">Dining</a></li>
+                        <li><a href="#">Wellness</a></li>
+                        <li><a href="#">Experiences</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">Special Offers</a></li>
+                        <li><a href="#">Weddings</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="tel:+9601234567">+960 123 4567</a></li>
+                        <li><a href="mailto:reservations@reethirah.com">reservations@reethirah.com</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+               
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

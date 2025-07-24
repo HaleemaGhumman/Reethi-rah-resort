@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reethi Rah Resort - Dining</title>
+    <style>
+        :root {
+            --primary: #0a9396;
+            --secondary: #005f73;
+            --accent: rgba(0, 0, 0, 0.493);
+            --light:black;
+            --dark: black;
+            --sand: #005f73 ;
+        }
+        
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            background-image: url('https://www.oneandonlyresorts.com/sites/default/files/styles/hero_image_1920x1080/public/2021-06/One_Only_Reethi_Rah_Exterior_1920x1080.jpg?itok=3Z3k1Q2S');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(248, 249, 250, 0.9);
+        }
+        
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-btn {
+            background-color: var(--accent);
+            color: var(--dark) !important;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background-color: var(--primary);
+            color: white !important;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+        
+        /* Dining Header */
+        .dining-header {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('https://www.oneandonlyresorts.com/sites/default/files/styles/hero_image_1920x1080/public/2021-06/One_Only_Reethi_Rah_Restaurant_1920x1080.jpg?itok=6XJQY9Xj');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+            padding: 180px 20px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dining-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 147, 150, 0.15);
+            z-index: 1;
+        }
+
+        .dining-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+            line-height: 1.2;
+            letter-spacing: 2px;
+        }
+
+        .dining-header p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            background-color: rgba(255,255,255,0.95);
+            border-radius: 8px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            margin-top: -40px;
+            padding-top: 40px;
+        }
+        
+        /* Dining Showcase */
+        .dining-showcase {
+            padding: 60px 0;
+        }
+        
+        .dining-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .dining-intro h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .restaurant-category {
+            margin-bottom: 80px;
+        }
+        
+        .restaurant-category h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .restaurant-category h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 15px auto 0;
+        }
+        
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .restaurant-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+        
+        .restaurant-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .restaurant-card:hover .restaurant-image {
+            transform: scale(1.05);
+        }
+        
+        .restaurant-details {
+            padding: 25px;
+        }
+        
+        .restaurant-details h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .restaurant-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .restaurant-feature {
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .restaurant-feature i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+        
+        .restaurant-hours {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .dining-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .dining-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Chef's Special Section */
+        .chef-special {
+            background-color: #f5f5f5;
+            padding: 80px 0;
+            margin: 60px 0;
+            border-radius: 8px;
+        }
+        
+        .chef-special h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .special-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .special-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .special-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .special-item h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .special-item p {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Dining Experiences */
+        .experiences {
+            padding: 60px 0;
+        }
+        
+        .experiences h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 40px;
+        }
+        
+        .experience-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .experience-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .experience-card ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .experience-card li {
+            margin-bottom: 10px;
+        }
+        
+        /* Private Dining */
+        .private-dining {
+            padding: 60px 0;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            margin: 60px 0;
+        }
+        
+        .private-dining h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .private-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .private-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .private-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .private-details {
+            padding: 25px;
+        }
+        
+        .private-details h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(rgba(0,18,25,0.95), rgba(0,18,25,0.95)), 
+                        url('https://www.oneandonlyresorts.com/sites/default/files/styles/hero_image_1920x1080/public/2021-06/One_Only_Reethi_Rah_Sunset_1920x1080.jpg?itok=6XJQY9Xj');
+            background-size: cover;
+            background-position: center;
+            color: rgba(0, 0, 0, 0.5);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--sand);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: rgba(0, 0, 0, 0.452);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .dining-header {
+                padding: 100px 20px;
+                min-height: 50vh;
+            }
+            
+            .dining-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .dining-header p {
+                font-size: 1.1rem;
+            }
+            
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .private-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">Reethi Rah</a>
+            
+            <button class="mobile-menu-btn">☰</button>
+            
+            <ul class="nav-links">
+               <li><a href="index.html">Home</a></li>
+            <li><a href="villapage.html">Villa</a></li>
+            <li><a href="dinningpage.html">Dining</a></li>
+            <li><a href="experiencepage.html">Experiences</a></li>
+            
+            <li><a href="spapage.html">spa</a></li>
+  <li><a href="booknow.html" class="nav-btn">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header class="dining-header" style="background: 
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('images/oneandonly_reethirah_accommodation_watervillaswithpool_aerial-1_alt.webp');">
+    <h1>CULINARY JOURNEYS AT REETHI RAH</h1>
+    <p>Discover world-class dining experiences with breathtaking ocean views and exceptional service</p>
+</header>
+    
+    <!-- Dining Content -->
+    <main class="container">
+        <section class="dining-showcase">
+            <div class="dining-intro">
+                <h2>A World of Flavors</h2>
+                <p>From fresh seafood caught daily to organic produce grown in our gardens, our chefs create unforgettable dining experiences that celebrate the rich flavors of the Maldives and beyond. Each restaurant offers a unique ambiance, from beachfront casual to elegant fine dining.</p>
+            </div>
+            
+            <div class="restaurant-category">
+                <h2>Our Restaurants</h2>
+                <div class="restaurant-grid">
+                    <div class="restaurant-card">
+                        <div class="restaurant-image" style="background-image: url('images/botanica.jpg');"></div>
+                        <div class="restaurant-details">
+                            <h3>Botanica</h3>
+                            <div class="restaurant-features">
+                                <span class="restaurant-feature"><i class="fas fa-utensils"></i> Mediterranean</span>
+                                <span class="restaurant-feature"><i class="fas fa-star"></i> Fine Dining</span>
+                                <span class="restaurant-feature"><i class="fas fa-child"></i> Family Friendly</span>
+                            </div>
+                            <p>Our signature restaurant offering contemporary Mediterranean cuisine with Maldivian influences, set in a lush garden environment.</p>
+                            <div class="restaurant-hours">Dinner: 6:30pm - 10:30pm</div>
+                            <a href="#" class="dining-btn">Make Reservation</a>
+                        </div>
+                    </div>
+                    
+                    <div class="restaurant-card">
+                        <div class="restaurant-image" style="background-image: url('images/fanditha.webp');"></div>
+                        <div class="restaurant-details">
+                            <h3>Fanditha</h3>
+                            <div class="restaurant-features">
+                                <span class="restaurant-feature"><i class="fas fa-utensils"></i> Middle Eastern</span>
+                                <span class="restaurant-feature"><i class="fas fa-moon"></i> Sunset Views</span>
+                                <span class="restaurant-feature"><i class="fas fa-cocktail"></i> Signature Cocktails</span>
+                            </div>
+                            <p>Beachfront dining with Middle Eastern flavors, featuring mezze, grilled specialties, and the best sunset views on the island.</p>
+                            <div class="restaurant-hours">Open: 5:00pm - 11:00pm</div>
+                            <a href="#" class="dining-btn">Make Reservation</a>
+                        </div>
+                    </div>
+                    
+                    <div class="restaurant-card">
+                        <div class="restaurant-image" style="background-image: url('images/One_Only-Reethi-Rah-North-Male-Maldives-10-1024x683.webp');"></div>
+                        <div class="restaurant-details">
+                            <h3>Reethi Restaurant</h3>
+                            <div class="restaurant-features">
+                                <span class="restaurant-feature"><i class="fas fa-utensils"></i> International</span>
+                                <span class="restaurant-feature"><i class="fas fa-sun"></i> All-Day Dining</span>
+                                <span class="restaurant-feature"><i class="fas fa-umbrella-beach"></i> Beachfront</span>
+                            </div>
+                            <p>Our main restaurant serving breakfast, lunch and dinner with live cooking stations and themed buffet nights.</p>
+                            <div class="restaurant-hours">Breakfast: 7:00am - 11:00am<br>Lunch: 12:30pm - 3:30pm<br>Dinner: 6:30pm - 10:30pm</div>
+                            <a href="#" class="dining-btn">Make Reservation</a>
+                        </div>
+                    </div>
+                    
+                    <div class="restaurant-card">
+                        <div class="restaurant-image" style="background-image: url('images/Rah bar.jpeg');"></div>
+                        <div class="restaurant-details">
+                            <h3>Rah Bar</h3>
+                            <div class="restaurant-features">
+                                <span class="restaurant-feature"><i class="fas fa-glass-martini-alt"></i> Lounge Bar</span>
+                                <span class="restaurant-feature"><i class="fas fa-music"></i> Live Music</span>
+                                <span class="restaurant-feature"><i class="fas fa-cocktail"></i> Creative Mixology</span>
+                            </div>
+                            <p>The social heart of the resort, offering light bites, creative cocktails, and evening entertainment with stunning lagoon views.</p>
+                            <div class="restaurant-hours">Open: 10:00am - 12:00am</div>
+                            <a href="#" class="dining-btn">View Menu</a>
+                        </div>
+                    </div>
+                    
+                    <div class="restaurant-card">
+                        <div class="restaurant-image" style="background-image: url('images/image.jpg');"></div>
+                        <div class="restaurant-details">
+                            <h3>Tapasake</h3>
+                            <div class="restaurant-features">
+                                <span class="restaurant-feature"><i class="fas fa-utensils"></i> Japanese</span>
+                                <span class="restaurant-feature"><i class="fas fa-water"></i> Overwater Dining</span>
+                                <span class="restaurant-feature"><i class="fas fa-fish"></i> Sushi & Sashimi</span>
+                            </div>
+                            <p>Authentic Japanese cuisine with the freshest seafood, featuring teppanyaki counters and an extensive sake selection.</p>
+                            <div class="restaurant-hours">Dinner: 6:30pm - 10:30pm</div>
+                            <a href="#" class="dining-btn">Make Reservation</a>
+                        </div>
+                    </div>
+                    
+                    <div class="restaurant-card">
+                        <div class="restaurant-image" style="background-image: url('images/beach.webp');"></div>
+                        <div class="restaurant-details">
+                            <h3>Beach Club</h3>
+                            <div class="restaurant-features">
+                                <span class="restaurant-feature"><i class="fas fa-utensils"></i> Casual Dining</span>
+                                <span class="restaurant-feature"><i class="fas fa-swimming-pool"></i> Infinity Pool</span>
+                                <span class="restaurant-feature"><i class="fas fa-umbrella-beach"></i> Beachfront</span>
+                            </div>
+                            <p>Daytime beachside dining with fresh salads, grilled seafood, wood-fired pizzas, and refreshing cocktails.</p>
+                            <div class="restaurant-hours">Open: 11:00am - 6:00pm</div>
+                            <a href="#" class="dining-btn">View Menu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chef's Special Section -->
+            <section class="chef-special">
+                <h2>Chef's Special Creations</h2>
+                <div class="special-grid">
+                    <div class="special-item">
+                        <div class="special-image" style="background-image: url('images/ch.webp');"></div>
+                        <h3>Maldivian Lobster Thermidor</h3>
+                        <p>Local spiny lobster prepared with our chef's signature creamy sauce and served with truffle-infused mashed potatoes.</p>
+                        <div class="restaurant-hours">Available at Botanica</div>
+                    </div>
+                    
+                    <div class="special-item">
+                        <div class="special-image" style="background-image: url('images/ocean1.webp');"></div>
+                        <h3>Ocean-to-Table Sashimi Platter</h3>
+                        <p>An assortment of the day's freshest catch, expertly prepared by our Japanese master chef.</p>
+                        <div class="restaurant-hours">Available at Tapasake</div>
+                    </div>
+                    
+                    <div class="special-item">
+                        <div class="special-image" style="background-image: url('images/curry.webp');"></div>
+                        <h3>Spice Island Curry</h3>
+                        <p>Aromatic Maldivian fish curry made with coconut milk, local spices, and served with traditional roshi bread.</p>
+                        <div class="restaurant-hours">Available at Reethi Restaurant</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Dining Experiences -->
+            <section class="experiences">
+                <h2>Unique Dining Experiences</h2>
+                <div class="experience-grid">
+                    <div class="experience-card">
+                        <h3>Private Sandbank Dinner</h3>
+                        <p>An unforgettable evening on your own private sandbank with a personal chef and butler service:</p>
+                        <ul>
+                            <li>Exclusive use of a secluded sandbank</li>
+                            <li>Personalized menu consultation with our chef</li>
+                            <li>Champagne and canapés at sunset</li>
+                            <li>Five-course gourmet dinner under the stars</li>
+                            <li>Dedicated butler and boat crew</li>
+                        </ul>
+                        <div class="restaurant-hours">From $1,200 per couple</div>
+                        <a href="#" class="dining-btn">Inquire About Experience</a>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <h3>Chef's Table at Botanica</h3>
+                        <p>An intimate culinary journey with our executive chef:</p>
+                        <ul>
+                            <li>Eight-course tasting menu with wine pairings</li>
+                            <li>Interaction with the chef throughout the meal</li>
+                            <li>Behind-the-scenes kitchen tour</li>
+                            <li>Commemorative menu signed by the chef</li>
+                            <li>Premium seating in our chef's private dining area</li>
+                        </ul>
+                        <div class="restaurant-hours">$350 per person</div>
+                        <a href="#" class="dining-btn">Inquire About Experience</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Private Dining -->
+            <section class="private-dining">
+                <h2>Private Dining Options</h2>
+                <div class="private-grid">
+                    <div class="private-card">
+                        <div class="private-image" style="background-image: url('images/villa dinning.webp');"></div>
+                        <div class="private-details">
+                            <h3>Villa Dining</h3>
+                            <p>Enjoy restaurant-quality meals in the privacy of your villa with our 24-hour in-villa dining service. Our chefs can prepare meals to your exact preferences.</p>
+                            <a href="#" class="dining-btn">View In-Villa Menu</a>
+                        </div>
+                    </div>
+                    
+                    <div class="private-card">
+                        <div class="private-image" style="background-image: url('images/romantic.jpeg');"></div>
+                        <div class="private-details">
+                            <h3>Beachfront Romantic Dinner</h3>
+                            <p>A secluded beach setup with candlelit tables in the sand, personalized menu, and dedicated service for a truly romantic evening.</p>
+                            <a href="#" class="dining-btn">Inquire About Setup</a>
+                        </div>
+                    </div>
+                    
+                    <div class="private-card">
+                        <div class="private-image" style="background-image: url('images/yacht.webp');"></div>
+                        <div class="private-details">
+                            <h3>Yacht Dining Experience</h3>
+                            <p>Dine aboard a luxury yacht with a private chef as you cruise through the atoll at sunset, with options for overnight stays.</p>
+                            <a href="#" class="dining-btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Reethi Rah</h3>
+                    <p>North Malé Atoll, Maldives</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#">Villas & Residences</a></li>
+                        <li><a href="#">Dining</a></li>
+                        <li><a href="#">Wellness</a></li>
+                        <li><a href="#">Experiences</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">Special Offers</a></li>
+                        <li><a href="#">Weddings</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="tel:+9601234567">+960 123 4567</a></li>
+                        <li><a href="mailto:reservations@reethirah.com">reservations@reethirah.com</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Reethi Rah Resort. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

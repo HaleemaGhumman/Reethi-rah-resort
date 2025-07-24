@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reethi Rah Resort - Blog & Articles</title>
+    <title>Reethi Rah Resort - Villas & Accommodation</title>
     <style>
         :root {
             --primary: #0a9396;
             --secondary: #005f73;
             --accent: rgba(0, 0, 0, 0.493);
-            --light:#005f73;
-            --dark: #005f73;
+            --light:black;
+            --dark: black;
             --sand: #005f73 ;
         }
         
@@ -103,30 +103,29 @@
             cursor: pointer;
         }
         
-        /* Blog Header */
-        .blog-header {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
-                        url('https://images.unsplash.com/photo-1579130781921-76e18892b57b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 150px 20px;
-            margin-bottom: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
         
-        .blog-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px white;
-        }
+        .villa-header {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
+                url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 150px 20px;
+    margin-bottom: 60px;
+}
+
+.villa-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px white;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
         
-        .blog-header p {
+        .villa-header p {
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto 40px;
@@ -145,44 +144,68 @@
             padding-top: 40px;
         }
         
-        /* Blog Grid */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 40px;
+        /* Villa Showcase */
+        .villa-showcase {
             padding: 60px 0;
         }
         
-        .blog-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 10px 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .villa-category {
+            margin-bottom: 80px;
+        }
+        
+        .villa-category h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
             position: relative;
         }
         
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 10px 20px 30px rgba(0,0,0,0.2);
+        .villa-category h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 15px auto 0;
         }
         
-        .blog-image {
+        .villa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .villa-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .villa-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+        
+        .villa-image {
             height: 250px;
             background-size: cover;
             background-position: center;
             transition: transform 0.5s ease;
         }
         
-        .blog-card:hover .blog-image {
+        .villa-card:hover .villa-image {
             transform: scale(1.05);
         }
         
-        .blog-content {
+        .villa-details {
             padding: 25px;
         }
         
-        .blog-content h2 {
+        .villa-details h3 {
             font-family: 'Playfair Display', serif;
             color: var(--secondary);
             margin-top: 0;
@@ -190,34 +213,91 @@
             font-size: 1.5rem;
         }
         
-        .blog-content p {
-            color: #555;
+        .villa-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-bottom: 20px;
         }
         
-        .blog-date {
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        .read-more {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
+        .villa-feature {
+            display: flex;
             align-items: center;
+            color: #555;
+            font-size: 0.9rem;
         }
         
-        .read-more::after {
-            content: '→';
-            margin-left: 5px;
-            transition: margin-left 0.3s ease;
+        .villa-feature i {
+            margin-right: 5px;
+            color: var(--primary);
         }
         
-        .read-more:hover::after {
-            margin-left: 10px;
+        .villa-price {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .villa-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .villa-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        
+        /* Amenities Section */
+        .amenities {
+            background-color: #f5f5f5;
+            padding: 80px 0;
+            margin: 60px 0;
+            border-radius: 8px;
+        }
+        
+        .amenities h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .amenity-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .amenity-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .amenity-item h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .amenity-item p {
+            color: #555;
+            font-size: 0.9rem;
         }
         
         /* Newsletter */
@@ -363,11 +443,11 @@
                 display: block;
             }
             
-            .blog-header {
+            .villa-header {
                 padding: 100px 20px;
             }
             
-            .blog-header h1 {
+            .villa-header h1 {
                 font-size: 2.5rem;
             }
             
@@ -398,97 +478,176 @@
             <button class="mobile-menu-btn">☰</button>
             
             <ul class="nav-links">
-               <li><a href="index.html">Home</a></li>
-            <li><a href="villapage.html">villa</a></li>
+                <li><a href="index.html">Home</a></li>
+            <li><a href="villapage.html">Villa</a></li>
             <li><a href="dinningpage.html">Dining</a></li>
             <li><a href="experiencepage.html">Experiences</a></li>
              <li><a href="spapage.html">spa</a></li>
             
             
-            
-                 <li><a href="booknow.html" class="nav-btn">Book Now</a></li>
+  <li><a href="booknow.html" class="nav-btn">Book Now</a></li>
             </ul>
         </div>
     </nav>
     
-    <!-- Blog Header (Modified: Container removed, text centered directly on image) -->
-    <header class="blog-header" style="background: 
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('images/oneandonly_reethirah_accommodation_watervillaswithpool_aerial-1_alt.webp');">
-        <h1>REETHI RAH RESORT</h1>
-        <p>Discover the latest stories, travel tips, and resort updates from our tropical paradise in the Maldives</p>
-    </header>
+ <header class="villa-header">
+    <h1>PREMIUM LUXURY VILLAS & RESIDENCES</h1>
+</header>
     
-    <!-- Blog Content -->
+    <!-- Villa Content -->
     <main class="container">
-        <div class="blog-grid">
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">June 15, 2023</span>
-                    <h2>Discover the Underwater Wonders of North Malé Atoll</h2>
-                    <p>Explore the vibrant marine life that surrounds Reethi Rah, from majestic manta rays to colorful coral gardens.</p>
-                </div>
-            </article>
+        <section class="villa-showcase">
+            <div class="villa-category">
+                <h2>Overwater Villas</h2>
+                <div class="villa-grid">
+                    <div class="villa-card">
+                        <div class="villa-image" style="background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="villa-details">
+                            <h3>Sunset Water Villa</h3>
+                            <div class="villa-features">
+                               
+                            </div>
+                            <p>Perched over the lagoon with direct access to the ocean, our Sunset Water Villas offer breathtaking views of the Maldivian sunset.</p>
+                            <div class="villa-price">From $1,200/night</div>
+                            <a href="#" class="villa-btn">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <div class="villa-card">
+    <div class="villa-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="villa-details">
+        <h3>Ocean Pool Villa</h3>
+        <div class="villa-features">
             
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">May 28, 2023</span>
-                    <h2>Rejuvenate at Our Award-Winning Overwater Spa</h2>
-                    <p>Experience holistic wellness treatments inspired by ancient Maldivian traditions in our serene spa sanctuary.</p>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">April 12, 2023</span>
-                    <h2>Culinary Journey: Taste of the Maldives</h2>
-                    <p>Our executive chef shares the secrets behind our authentic Maldivian seafood dishes and tropical flavors.</p>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1517824806704-9040b037703b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">March 30, 2023</span>
-                    <h2>Sunset Romance: Perfect Moments at Reethi Rah</h2>
-                    <p>Create unforgettable memories with our bespoke romantic experiences designed for couples.</p>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">February 18, 2023</span>
-                    <h2>Family Adventures in Paradise</h2>
-                    <p>Discover how Reethi Rah creates magical experiences for guests of all ages with our family-friendly activities.</p>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1468413253725-0d5181091126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">January 5, 2023</span>
-                    <h2>Sustainability at Reethi Rah: Protecting Our Paradise</h2>
-                    <p>Learn about our eco-initiatives and how we're preserving the natural beauty of the Maldives.</p>
-                </div>
-            </article>
         </div>
+        <p>Featuring a glass floor panel to observe marine life and a spacious deck with infinity pool overlooking the Indian Ocean.</p>
+        <div class="villa-price">From $1,500/night</div>
+        <a href="#" class="villa-btn">View Details</a>
+    </div>
+</div>
+                    
+                    <div class="villa-card">
+                        <div class="villa-image" style="background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="villa-details">
+                            <h3>Two-Bedroom Water Suite</h3>
+                            <div class="villa-features">
+                               
+                            </div>
+                            <p>Ideal for families or groups, featuring two master bedrooms, expansive living area, and panoramic ocean views and precious views.</p>
+                            <div class="villa-price">From $2,800/night</div>
+                            <a href="#" class="villa-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="villa-category">
+                <h2>Beachfront Villas</h2>
+                <div class="villa-grid">
+                    <div class="villa-card">
+                        <div class="villa-image" style="background-image: url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="villa-details">
+                            <h3>Beach Pool Villa</h3>
+                            <div class="villa-features">
+                                
+                            </div>
+                            <p>Nestled among tropical vegetation with direct beach access, featuring a private garden and pool area.</p>
+                            <div class="villa-price">From $1,300/night</div>
+                            <a href="#" class="villa-btn">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <div class="villa-card">
+                        <div class="villa-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="villa-details">
+                            <h3>Beach Pool Villa with Spa</h3>
+                            <div class="villa-features">
+                                
+                            </div>
+                            <p>Includes an outdoor treatment pavilion for private spa sessions, along with a large pool and beachfront deck.</p>
+                            <div class="villa-price">From $1,800/night</div>
+                            <a href="#" class="villa-btn">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <div class="villa-card">
+                        <div class="villa-image" style="background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="villa-details">
+                            <h3>Four-Bedroom Beach</h3>
+                            <div class="villa-features">
+                                </div>
+                            <p>Most expansive beachfront accommodation, perfect for large families or groups, with private services.</p>
+                            <div class="villa-price">From $5,000/night</div>
+                            <a href="#" class="villa-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+       <!-- Amenities Section -->
+<section class="amenities">
+    <h2>Villa Amenities</h2>
+    <div class="amenities-grid">
+        <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-umbrella-beach"></i></div>
+            <h3>Private Beach Access</h3>
+            <p>Direct access to pristine white sand beaches from your villa</p>
+        </div>
+        
+        <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-swimming-pool"></i></div>
+            <h3>Infinity Pools</h3>
+            <p>Most villas feature private infinity pools with ocean views</p>
+        </div>
+        
+        <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-wifi"></i></div>
+            <h3>High-Speed WiFi</h3>
+            <p>Complimentary high-speed internet throughout your stay</p>
+        </div>
+        
+        <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-glass-cheers"></i></div>
+            <h3>Mini Bar</h3>
+            <p>Well-stocked mini bar refreshed daily with premium selections</p>
+        </div>
+        
+        <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-tv"></i></div>
+            <h3>Entertainment</h3>
+            <p>Smart TVs with international channels and streaming services</p>
+        </div>
+        
+        <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-concierge-bell"></i></div>
+            <h3>24/7 Butler</h3>
+            <p>Dedicated butler service to attend to all your needs</p>
+        </div>
+        
+        <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-spa"></i></div>
+            <h3>Bath Amenities</h3>
+            <p>Luxury bathroom amenities and plush bathrobes</p>
+        </div>
+        
+        <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-coffee"></i></div>
+            <h3>Coffee Station</h3>
+            <p>Nespresso machine with complimentary capsules</p>
+        </div>
+        
+        <!-- New Amenity Item Added -->
+        <div class="amenity-item">
+            <div class="amenity-icon"><i class="fas fa-utensils"></i></div>
+            <h3>Private Chef</h3>
+            <p>Personal chef available to prepare customized meals in your villa</p>
+        </div>
+    </div>
+</section>
     </main>
     
-    <!-- Newsletter Section -->
-    <section class="newsletter" style="color: black;">
-        <div class="container">
-            <h2 style="color: #005f73;">Stay Updated</h2>
-            <p style="color: black;">Subscribe to our newsletter for exclusive resort updates, special offers, and travel inspiration.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Your email address" class="newsletter-input" required style="color: black;">
-                <button type="submit" class="newsletter-btn" style="color: black;">Subscribe</button>
-            </form>
-        </div>
-    </section>
+   
     
     <!-- Footer -->
     <footer>

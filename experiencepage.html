@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reethi Rah Resort - Experiences</title>
+    <style>
+        :root {
+            --primary: #0a9396;
+            --secondary: #005f73;
+            --accent: rgba(0, 0, 0, 0.493);
+            --light:black;
+            --dark: black;
+            --sand: #005f73 ;
+        }
+        
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(248, 249, 250, 0.9);
+        }
+        
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-btn {
+            background-color: var(--accent);
+            color: var(--dark) !important;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background-color: var(--primary);
+            color: white !important;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+        
+        /* Experiences Header */
+        .exp-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+            margin-bottom: 60px;
+        }
+
+        .exp-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px white;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .exp-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            background-color: rgba(255,255,255,0.95);
+            border-radius: 8px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            margin-top: -40px;
+            padding-top: 40px;
+        }
+        
+        /* Experiences Showcase */
+        .exp-showcase {
+            padding: 60px 0;
+        }
+        
+        .exp-category {
+            margin-bottom: 80px;
+        }
+        
+        .exp-category h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .exp-category h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 15px auto 0;
+        }
+        
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .exp-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .exp-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+        
+        .exp-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .exp-card:hover .exp-image {
+            transform: scale(1.05);
+        }
+        
+        .exp-details {
+            padding: 25px;
+        }
+        
+        .exp-details h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .exp-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .exp-feature {
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .exp-feature i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+        
+        .exp-price {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .exp-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .exp-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Highlights Section */
+        .highlights {
+            background-color: #f5f5f5;
+            padding: 80px 0;
+            margin: 60px 0;
+            border-radius: 8px;
+        }
+        
+        .highlights h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .highlight-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .highlight-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .highlight-item h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .highlight-item p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(rgba(0,95,115,0.9), rgba(0,95,115,0.9)), 
+                        url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color:#005f73;
+            padding: 80px 0;
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            background-color: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: #ffb52b;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(rgba(0,18,25,0.95), rgba(0,18,25,0.95)), 
+                        url('https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: rgba(0, 0, 0, 0.5);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--sand);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: rgba(0, 0, 0, 0.452);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .exp-header {
+                padding: 100px 20px;
+            }
+            
+            .exp-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 30px;
+                padding: 15px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">Reethi Rah</a>
+            
+            <button class="mobile-menu-btn">☰</button>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+            <li><a href="villapage.html">Villa</a></li>
+            <li><a href="dinningpage.html">Dining</a></li>
+            <li><a href="experiencepage.html">Experiences</a></li>
+             <li><a href="spapage.html">spa</a></li>
+            
+            
+  <li><a href="booknow.html" class="nav-btn">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header class="exp-header">
+        <h1>UNFORGETTABLE MALDIVIAN EXPERIENCES</h1>
+        <p>Discover the wonders of the Indian Ocean with our curated collection of adventures and activities</p>
+    </header>
+    
+    <!-- Experiences Content -->
+    <main class="container">
+        <section class="exp-showcase">
+            <div class="exp-category">
+                <h2>Water Adventures</h2>
+                <div class="exp-grid">
+                    <div class="exp-card">
+                        <div class="exp-image" style="background-image: url('images/scuba.webp');"></div>
+                        <div class="exp-details">
+                            <h3>Scuba Diving</h3>
+                            <div class="exp-features">
+                                <span class="exp-feature"><i class="fas fa-clock"></i> Half Day</span>
+                                <span class="exp-feature"><i class="fas fa-user"></i> All Levels</span>
+                            </div>
+                            <p>Explore vibrant coral reefs teeming with marine life. PADI certified instructors available for beginners and advanced divers.</p>
+                            <div class="exp-price">From $150 per person</div>
+                            <a href="#" class="exp-btn">Book Experience</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exp-card">
+                        <div class="exp-image" style="background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="exp-details">
+                            <h3>Sunset Dolphin Cruise</h3>
+                            <div class="exp-features">
+                                <span class="exp-feature"><i class="fas fa-clock"></i> 2 Hours</span>
+                                <span class="exp-feature"><i class="fas fa-user"></i> All Ages</span>
+                            </div>
+                            <p>Witness playful dolphins in their natural habitat as the sun sets over the Indian Ocean. Includes champagne and canapés.</p>
+                            <div class="exp-price">From $120 per person</div>
+                            <a href="#" class="exp-btn">Book Experience</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exp-card">
+                        <div class="exp-image" style="background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="exp-details">
+                            <h3>Private Yacht Charter</h3>
+                            <div class="exp-features">
+                                <span class="exp-feature"><i class="fas fa-clock"></i> Full Day</span>
+                                <span class="exp-feature"><i class="fas fa-user"></i> Up to 12 Guests</span>
+                            </div>
+                            <p>Customize your own luxury yacht itinerary with snorkeling, fishing, and island hopping. Includes gourmet lunch and open bar.</p>
+                            <div class="exp-price">From $2,500 per day</div>
+                            <a href="#" class="exp-btn">Book Experience</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exp-category">
+                <h2>Island Experiences</h2>
+                <div class="exp-grid">
+                    <div class="exp-card">
+                        <div class="exp-image" style="background-image: url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="exp-details">
+                            <h3>Private Sandbank Picnic</h3>
+                            <div class="exp-features">
+                                <span class="exp-feature"><i class="fas fa-clock"></i> 4 Hours</span>
+                                <span class="exp-feature"><i class="fas fa-user"></i> Up to 6 Guests</span>
+                            </div>
+                            <p>Escape to your own private sandbank with a gourmet picnic setup, snorkeling gear, and butler service.</p>
+                            <div class="exp-price">From $600 per group</div>
+                            <a href="#" class="exp-btn">Book Experience</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exp-card">
+                        <div class="exp-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="exp-details">
+                            <h3>Local Island Tour</h3>
+                            <div class="exp-features">
+                                <span class="exp-feature"><i class="fas fa-clock"></i> 5 Hours</span>
+                                <span class="exp-feature"><i class="fas fa-user"></i> All Ages</span>
+                            </div>
+                            <p>Experience authentic Maldivian culture with visits to fishing villages, markets, and historic sites.</p>
+                            <div class="exp-price">From $180 per person</div>
+                            <a href="#" class="exp-btn">Book Experience</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exp-card">
+                        <div class="exp-image" style="background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="exp-details">
+                            <h3>Stargazing on the Beach</h3>
+                            <div class="exp-features">
+                                <span class="exp-feature"><i class="fas fa-clock"></i> Evening</span>
+                                <span class="exp-feature"><i class="fas fa-user"></i> All Ages</span>
+                            </div>
+                            <p>Guided tour of the night sky with our resident astronomer. Includes telescope viewing and tropical cocktails.</p>
+                            <div class="exp-price">From $90 per person</div>
+                            <a href="#" class="exp-btn">Book Experience</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exp-category">
+                <h2>Wellness & Relaxation</h2>
+                <div class="exp-grid">
+                    <div class="exp-card">
+                        <div class="exp-image" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="exp-details">
+                            <h3>Overwater Spa Retreat</h3>
+                            <div class="exp-features">
+                                <span class="exp-feature"><i class="fas fa-clock"></i> 3 Hours</span>
+                                <span class="exp-feature"><i class="fas fa-user"></i> Adults Only</span>
+                            </div>
+                            <p>Indulge in a signature massage, facial, and hydrotherapy session in our overwater treatment rooms.</p>
+                            <div class="exp-price">From $350 per person</div>
+                            <a href="#" class="exp-btn">Book Experience</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exp-card">
+                        <div class="exp-image" style="background-image: url('images/sunrise yoga.webp');"></div>
+                        <div class="exp-details">
+                            <h3>Sunrise Yoga</h3>
+                            <div class="exp-features">
+                                <span class="exp-feature"><i class="fas fa-clock"></i> Daily</span>
+                                <span class="exp-feature"><i class="fas fa-user"></i> All Levels</span>
+                            </div>
+                            <p>Begin your day with guided yoga sessions on the beach, overlooking the ocean at sunrise.</p>
+                            <div class="exp-price">Complimentary for Guests</div>
+                            <a href="#" class="exp-btn">Book Experience</a>
+                        </div>
+                    </div>
+                    
+                    <div class="exp-card">
+                        <div class="exp-image" style="background-image: url('images/couple.webp');"></div>
+                        <div class="exp-details">
+                            <h3>Couples' Moonlight Massage</h3>
+                            <div class="exp-features">
+                                <span class="exp-feature"><i class="fas fa-clock"></i> 2 Hours</span>
+                                <span class="exp-feature"><i class="fas fa-user"></i> Couples</span>
+                            </div>
+                            <p>Romantic side-by-side massage in a private beach cabana under the stars, with champagne and chocolate.</p>
+                            <div class="exp-price">From $500 per couple</div>
+                            <a href="#" class="exp-btn">Book Experience</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </main>
+        
+       
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Reethi Rah</h3>
+                    <p>North Malé Atoll, Maldives</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#">Villas & Residences</a></li>
+                        <li><a href="#">Dining</a></li>
+                        <li><a href="#">Wellness</a></li>
+                        <li><a href="#" class="active">Experiences</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">Special Offers</a></li>
+                        <li><a href="#">Weddings</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="tel:+9601234567">+960 123 4567</a></li>
+                        <li><a href="mailto:reservations@reethirah.com">reservations@reethirah.com</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

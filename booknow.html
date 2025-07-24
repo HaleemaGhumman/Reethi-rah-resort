@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reethi Rah Resort - Blog & Articles</title>
+    <title>Reethi Rah Resort - Book Now</title>
     <style>
         :root {
             --primary: #0a9396;
             --secondary: #005f73;
             --accent: rgba(0, 0, 0, 0.493);
-            --light:#005f73;
-            --dark: #005f73;
+            --light:black;
+            --dark: black;
             --sand: #005f73 ;
         }
         
@@ -103,30 +103,29 @@
             cursor: pointer;
         }
         
-        /* Blog Header */
-        .blog-header {
+        /* Booking Header */
+        .booking-header {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
-                        url('https://images.unsplash.com/photo-1579130781921-76e18892b57b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+                        url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
             padding: 150px 20px;
             margin-bottom: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
         }
-        
-        .blog-header h1 {
+
+        .booking-header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px white;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .blog-header p {
+        .booking-header p {
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto 40px;
@@ -145,132 +144,152 @@
             padding-top: 40px;
         }
         
-        /* Blog Grid */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 40px;
+        /* Booking Form */
+        .booking-form-container {
             padding: 60px 0;
         }
         
-        .blog-card {
+        .booking-form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
             background-color: white;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 10px 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
             position: relative;
         }
         
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 10px 20px 30px rgba(0,0,0,0.2);
+        .form-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 15px auto 0;
         }
         
-        .blog-image {
-            height: 250px;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.5s ease;
+        .form-group {
+            margin-bottom: 25px;
         }
         
-        .blog-card:hover .blog-image {
-            transform: scale(1.05);
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--secondary);
         }
         
-        .blog-content {
-            padding: 25px;
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
         }
         
-        .blog-content h2 {
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Booking Options */
+        .booking-options {
+            margin-top: 60px;
+        }
+        
+        .booking-options h2 {
             font-family: 'Playfair Display', serif;
             color: var(--secondary);
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
         }
         
-        .blog-content p {
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .option-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .option-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .option-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .option-card p {
             color: #555;
             margin-bottom: 20px;
         }
         
-        .blog-date {
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        .read-more {
-            color: var(--primary);
-            font-weight: 600;
+        .option-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .read-more::after {
-            content: '→';
-            margin-left: 5px;
-            transition: margin-left 0.3s ease;
-        }
-        
-        .read-more:hover::after {
-            margin-left: 10px;
-        }
-        
-        /* Newsletter */
-        .newsletter {
-            background: linear-gradient(rgba(0,95,115,0.9), rgba(0,95,115,0.9)), 
-                        url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            color:#005f73;
-            padding: 80px 0;
-            text-align: center;
-            margin: 60px 0;
-        }
-        
-        .newsletter h2 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-        }
-        
-        .newsletter p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            font-size: 1.1rem;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        .newsletter-input {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 30px 0 0 30px;
-            font-size: 1rem;
-        }
-        
-        .newsletter-btn {
-            background-color: var(--accent);
-            color: var(--dark);
-            border: none;
-            padding: 0 25px;
-            border-radius: 0 30px 30px 0;
             font-weight: 600;
-            cursor: pointer;
             transition: all 0.3s ease;
         }
         
-        .newsletter-btn:hover {
-            background-color: #ffb52b;
+        .option-btn:hover {
+            background-color: var(--secondary);
         }
         
         /* Footer */
@@ -363,26 +382,21 @@
                 display: block;
             }
             
-            .blog-header {
+            .booking-header {
                 padding: 100px 20px;
             }
             
-            .blog-header h1 {
+            .booking-header h1 {
                 font-size: 2.5rem;
             }
             
-            .newsletter-form {
+            .form-row {
                 flex-direction: column;
+                gap: 0;
             }
             
-            .newsletter-input {
-                border-radius: 30px;
-                margin-bottom: 10px;
-            }
-            
-            .newsletter-btn {
-                border-radius: 30px;
-                padding: 15px;
+            .booking-form {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -398,97 +412,119 @@
             <button class="mobile-menu-btn">☰</button>
             
             <ul class="nav-links">
-               <li><a href="index.html">Home</a></li>
-            <li><a href="villapage.html">villa</a></li>
-            <li><a href="dinningpage.html">Dining</a></li>
-            <li><a href="experiencepage.html">Experiences</a></li>
-             <li><a href="spapage.html">spa</a></li>
-            
-            
-            
-                 <li><a href="booknow.html" class="nav-btn">Book Now</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="villapage.html">Villa</a></li>
+                <li><a href="dinningpage.html">Dining</a></li>
+                <li><a href="experiencepage.html">Experiences</a></li>
+                <li><a href="spapage.html">Spa</a></li>
+                
+                <li><a href="booknow.html" class="nav-btn">Book Now</a></li>
             </ul>
         </div>
     </nav>
     
-    <!-- Blog Header (Modified: Container removed, text centered directly on image) -->
-    <header class="blog-header" style="background: 
+    <header class="booking-header" style="background: 
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('images/oneandonly_reethirah_accommodation_watervillaswithpool_aerial-1_alt.webp');">
-        <h1>REETHI RAH RESORT</h1>
-        <p>Discover the latest stories, travel tips, and resort updates from our tropical paradise in the Maldives</p>
+    url('images/OO-Reethi-Rah-3HVB.jpg');">
+        <h1>RESERVE YOUR PARADISE</h1>
+        <p>Begin your journey to the Maldives with our easy booking process</p>
     </header>
     
-    <!-- Blog Content -->
+    <!-- Booking Content -->
     <main class="container">
-        <div class="blog-grid">
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">June 15, 2023</span>
-                    <h2>Discover the Underwater Wonders of North Malé Atoll</h2>
-                    <p>Explore the vibrant marine life that surrounds Reethi Rah, from majestic manta rays to colorful coral gardens.</p>
-                </div>
-            </article>
+        <section class="booking-form-container">
+            <div class="booking-form">
+                <h2 class="form-title">Reservation Details</h2>
+                <form id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkIn">Check-In Date</label>
+                            <input type="date" id="checkIn" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkOut">Check-Out Date</label>
+                            <input type="date" id="checkOut" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="adults">Adults</label>
+                            <select id="adults" class="form-control" required>
+                                <option value="1">1 Adult</option>
+                                <option value="2" selected>2 Adults</option>
+                                <option value="3">3 Adults</option>
+                                <option value="4">4 Adults</option>
+                                <option value="5">5 Adults</option>
+                                <option value="6">6 Adults</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="children">Children (Under 12)</label>
+                            <select id="children" class="form-control">
+                                <option value="0" selected>0 Children</option>
+                                <option value="1">1 Child</option>
+                                <option value="2">2 Children</option>
+                                <option value="3">3 Children</option>
+                                <option value="4">4 Children</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="roomType">Villa Type</label>
+                        <select id="roomType" class="form-control" required>
+                            <option value="" disabled selected>Select Villa Type</option>
+                            <option value="beachVilla">Beach Villa</option>
+                            <option value="waterVilla">Overwater Villa</option>
+                            <option value="sunsetVilla">Sunset Pool Villa</option>
+                            <option value="residence">Ocean Residence</option>
+                            <option value="mansion">Beach Mansion</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requests</label>
+                        <textarea id="specialRequests" class="form-control" rows="4" placeholder="Any special requests or requirements..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Check Availability</button>
+                </form>
+            </div>
             
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">May 28, 2023</span>
-                    <h2>Rejuvenate at Our Award-Winning Overwater Spa</h2>
-                    <p>Experience holistic wellness treatments inspired by ancient Maldivian traditions in our serene spa sanctuary.</p>
+            <div class="booking-options">
+                <h2>Other Ways to Book</h2>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <div class="option-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p>Speak directly with our reservations team for personalized service</p>
+                        <a href="tel:+9601234567" class="option-btn">+960 123 4567</a>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>Send us your inquiry and we'll respond within 24 hours</p>
+                        <a href="mailto:reservations@reethirah.com" class="option-btn">Email Now</a>
+                    </div>
+                    
+                    <div class="option-card">
+                        <div class="option-icon">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <h3>Travel Agent</h3>
+                        <p>Contact your preferred travel professional to book your stay</p>
+                        <a href="#" class="option-btn">Find an Agent</a>
+                    </div>
                 </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">April 12, 2023</span>
-                    <h2>Culinary Journey: Taste of the Maldives</h2>
-                    <p>Our executive chef shares the secrets behind our authentic Maldivian seafood dishes and tropical flavors.</p>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1517824806704-9040b037703b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">March 30, 2023</span>
-                    <h2>Sunset Romance: Perfect Moments at Reethi Rah</h2>
-                    <p>Create unforgettable memories with our bespoke romantic experiences designed for couples.</p>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">February 18, 2023</span>
-                    <h2>Family Adventures in Paradise</h2>
-                    <p>Discover how Reethi Rah creates magical experiences for guests of all ages with our family-friendly activities.</p>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1468413253725-0d5181091126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">January 5, 2023</span>
-                    <h2>Sustainability at Reethi Rah: Protecting Our Paradise</h2>
-                    <p>Learn about our eco-initiatives and how we're preserving the natural beauty of the Maldives.</p>
-                </div>
-            </article>
-        </div>
+            </div>
+        </section>
     </main>
-    
-    <!-- Newsletter Section -->
-    <section class="newsletter" style="color: black;">
-        <div class="container">
-            <h2 style="color: #005f73;">Stay Updated</h2>
-            <p style="color: black;">Subscribe to our newsletter for exclusive resort updates, special offers, and travel inspiration.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Your email address" class="newsletter-input" required style="color: black;">
-                <button type="submit" class="newsletter-btn" style="color: black;">Subscribe</button>
-            </form>
-        </div>
-    </section>
     
     <!-- Footer -->
     <footer>
@@ -535,7 +571,7 @@
             </div>
             
             <div class="copyright">
-                
+                <p>&copy; 2023 Reethi Rah Resort. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -554,6 +590,13 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
+        });
+        
+        // Form submission handling
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to your server
+            alert('Thank you for your reservation request. We will contact you shortly to confirm availability.');
         });
     </script>
 </body>
